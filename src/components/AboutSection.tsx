@@ -1,6 +1,7 @@
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import { Brain, Code2, Database, Rocket, Cpu, Lightbulb } from 'lucide-react';
+import YggdrasilTree from './YggdrasilTree';
 
 const SkillBubble = ({ skill, icon: Icon, level }: { skill: string, icon: any, level: number }) => (
   <div className="relative group">
@@ -23,30 +24,6 @@ const SkillBubble = ({ skill, icon: Icon, level }: { skill: string, icon: any, l
   </div>
 );
 
-const TimelineItem = ({ year, title, description, isLeft = false }: {
-  year: string;
-  title: string;
-  description: string;
-  isLeft?: boolean;
-}) => (
-  <div className={`flex items-center gap-8 ${isLeft ? 'flex-row-reverse' : ''}`}>
-    <div className={`flex-1 ${isLeft ? 'text-right' : ''}`}>
-      <Card className="p-6 bg-gradient-card border-border/50 hover:border-primary/50 transition-all duration-300">
-        <div className="text-sm text-accent-blue font-mono mb-2">{year}</div>
-        <h3 className="text-xl font-semibold mb-2">{title}</h3>
-        <p className="text-muted-foreground">{description}</p>
-      </Card>
-    </div>
-    
-    {/* Timeline Node */}
-    <div className="relative">
-      <div className="w-4 h-4 bg-primary rounded-full border-4 border-background" />
-      <div className="absolute inset-0 w-4 h-4 bg-primary rounded-full animate-ping opacity-20" />
-    </div>
-    
-    <div className="flex-1" />
-  </div>
-);
 
 const AboutSection = () => {
   const skills = [
@@ -58,28 +35,6 @@ const AboutSection = () => {
     { skill: "Database Design", icon: Database, level: 80 },
   ];
 
-  const timeline = [
-    {
-      year: "2024",
-      title: "AI Research & Full-Stack Development",
-      description: "Currently working on cutting-edge AI projects while building scalable web applications. Exploring the future of human-AI collaboration."
-    },
-    {
-      year: "2023",
-      title: "Deep Learning Specialization",
-      description: "Completed advanced coursework in neural networks and computer vision. Built several AI models that can recognize patterns in complex datasets."
-    },
-    {
-      year: "2022",
-      title: "Software Engineering Journey",
-      description: "Started my journey into software engineering, learning multiple programming languages and development frameworks. Fell in love with clean code."
-    },
-    {
-      year: "2021",
-      title: "Computer Science Foundations",
-      description: "Began studying computer science, discovering my passion for algorithms, data structures, and problem-solving through code."
-    }
-  ];
 
   return (
     <section id="about" className="py-20 bg-gradient-to-b from-background to-muted/20">
@@ -112,28 +67,12 @@ const AboutSection = () => {
           </div>
         </div>
 
-        {/* Timeline Section */}
+        {/* Yggdrasil Tree Section */}
         <div className="mb-20">
           <h3 className="text-2xl font-display font-semibold mb-12 text-center">
             My <span className="text-accent-pink">Journey</span>
           </h3>
-          
-          <div className="relative max-w-4xl mx-auto">
-            {/* Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-px bg-border" />
-            
-            <div className="space-y-12">
-              {timeline.map((item, index) => (
-                <div 
-                  key={item.year}
-                  className="animate-slide-up"
-                  style={{ animationDelay: `${index * 0.2}s` }}
-                >
-                  <TimelineItem {...item} isLeft={index % 2 === 1} />
-                </div>
-              ))}
-            </div>
-          </div>
+          <YggdrasilTree />
         </div>
 
         {/* Fun Facts */}

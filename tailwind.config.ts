@@ -142,6 +142,16 @@ export default {
 						opacity: '1'
 					}
 				},
+				'scale-in': {
+					from: {
+						opacity: '0',
+						transform: 'scale(0.8)'
+					},
+					to: {
+						opacity: '1',
+						transform: 'scale(1)'
+					}
+				},
 				'typing': {
 					from: {
 						width: '0'
@@ -159,6 +169,7 @@ export default {
 				'enter': 'enter 0.6s ease-out forwards',
 				'slide-up': 'slide-up 0.6s ease-out forwards',
 				'fade-in': 'fade-in 0.8s ease-out forwards',
+				'scale-in': 'scale-in 0.5s ease-out forwards',
 				'typing': 'typing 3s steps(40, end) infinite'
 			}
 		}

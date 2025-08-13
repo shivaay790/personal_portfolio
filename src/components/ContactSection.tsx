@@ -7,20 +7,19 @@ import { Badge } from '@/components/ui/badge';
 import { Github, Linkedin, Mail, MapPin, Coffee, Heart } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
-const SocialLink = ({ href, icon: Icon, label, color }: {
+const SocialLink = ({ href, icon: Icon, label }: {
   href: string;
   icon: any;
   label: string;
-  color: string;
 }) => (
   <a 
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className={`p-4 rounded-xl border border-border/50 hover:border-${color} transition-all duration-300 group bg-gradient-card interactive`}
+    className={`p-4 rounded-xl border border-border/50 hover:border-primary transition-all duration-300 group bg-gradient-card interactive`}
   >
     <div className="flex items-center gap-3">
-      <Icon size={24} className={`text-${color} group-hover:scale-110 transition-transform`} />
+      <Icon size={24} className={`text-primary group-hover:scale-110 transition-transform`} />
       <span className="font-medium">{label}</span>
     </div>
   </a>
@@ -196,21 +195,18 @@ const ContactSection = () => {
                   href="https://github.com/shivaay"
                   icon={Github}
                   label="GitHub"
-                  color="accent-blue"
                 />
                 
                 <SocialLink 
                   href="https://linkedin.com/in/shivaay"
                   icon={Linkedin}
                   label="LinkedIn"
-                  color="accent-blue"
                 />
                 
                 <SocialLink 
                   href="mailto:shivaay@example.com"
                   icon={Mail}
                   label="Email"
-                  color="accent-pink"
                 />
               </div>
             </div>

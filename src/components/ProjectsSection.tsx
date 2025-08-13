@@ -33,7 +33,13 @@ const ProjectCard = ({ project }: { project: any }) => {
           <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
             {project.title}
           </h3>
-          <p className="text-muted-foreground text-sm line-clamp-3">
+          <p className="text-muted-foreground text-sm overflow-hidden h-12"
+             style={{
+               display: '-webkit-box',
+               WebkitLineClamp: 3,
+               WebkitBoxOrient: 'vertical'
+             }}
+          >
             {project.description}
           </p>
         </div>

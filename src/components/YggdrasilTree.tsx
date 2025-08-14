@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { X, Github, ExternalLink, ArrowLeft } from 'lucide-react';
 import { projectsData, Project } from '@/data/projectData';
 
+
 interface TreeNode {
   id: string;
   x: number;
@@ -100,196 +101,179 @@ const YggdrasilTree = () => {
 
   const getProjectById = (id: string) => projectsData.find(p => p.id === id);
 
+  // Define leaf positions on the tree for each project
+  const leafPositions = {
+    'college-start': { x: 50, y: 85 }, // Roots
+    'sentiment-analysis': { x: 35, y: 70 }, // Lower left branch
+    'hand-gesture': { x: 65, y: 70 }, // Lower right branch
+    'empathic-chatbot': { x: 25, y: 55 }, // Mid left
+    'crowd-counting': { x: 75, y: 55 }, // Mid right
+    'virtual-tryon': { x: 45, y: 40 }, // Upper left
+    'research-paper': { x: 55, y: 40 }, // Upper right
+    'capstone-project': { x: 50, y: 25 } // Crown of the tree
+  };
+
   return (
     <div className="relative w-full h-[800px] overflow-hidden rounded-lg bg-gradient-to-br from-background via-background/95 to-muted/30">
+      {/* Yggdrasil Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-90"
+        style={{ 
+          backgroundImage: `url(/lovable-uploads/fa1fe5e0-7f22-4b19-80c9-0c613c05cf0f.png)`,
+          filter: 'brightness(0.8) contrast(1.1)'
+        }}
+      />
+      
+      {/* Overlay gradient for better text visibility */}
+      <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-background/30" />
+      
       {/* Particle effects */}
       <div className="absolute inset-0 pointer-events-none">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(30)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-primary/30 rounded-full animate-float"
+            className="absolute w-1 h-1 bg-yellow-400/60 rounded-full animate-float"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${3 + Math.random() * 2}s`
+              animationDelay: `${Math.random() * 4}s`,
+              animationDuration: `${4 + Math.random() * 3}s`
             }}
           />
         ))}
       </div>
 
-      {/* Main Tree SVG */}
-      <div
-        ref={containerRef}
-        className="relative w-full h-full cursor-grab active:cursor-grabbing"
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseUp}
-        onWheel={handleWheel}
-      >
-        <svg
-          ref={svgRef}
-          width="100%"
-          height="100%"
-          viewBox="-400 -400 800 800"
-          className="transition-transform duration-700 ease-out"
-          style={{
-            transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`
-          }}
-        >
-          {/* Tree branches */}
-          {branches.map((branch, index) => {
-            const fromProject = getProjectById(branch.from);
-            const toProject = getProjectById(branch.to);
-            if (!fromProject || !toProject) return null;
-
-            return (
-              <g key={`${branch.from}-${branch.to}`}>
-                <line
-                  x1={fromProject.position.x}
-                  y1={fromProject.position.y}
-                  x2={toProject.position.x}
-                  y2={toProject.position.y}
-                  stroke="hsl(var(--border))"
-                  strokeWidth="2"
-                  opacity={treeGrown ? 0.6 : 0}
-                  className="transition-all duration-1000 ease-out"
-                  style={{
-                    transitionDelay: `${index * 200 + 800}ms`
-                  }}
-                />
-                {/* Glowing overlay */}
-                <line
-                  x1={fromProject.position.x}
-                  y1={fromProject.position.y}
-                  x2={toProject.position.x}
-                  y2={toProject.position.y}
-                  stroke="hsl(var(--primary))"
-                  strokeWidth="1"
-                  opacity={treeGrown ? 0.3 : 0}
-                  className="transition-all duration-1000 ease-out animate-pulse-glow"
-                  style={{
-                    transitionDelay: `${index * 200 + 1000}ms`
-                  }}
-                />
-              </g>
-            );
-          })}
-
-          {/* Project nodes */}
-          {projectsData.map((project, index) => (
-            <g
+      {/* Project Leaf Nodes on Tree */}
+      <div className="relative w-full h-full">
+        {projectsData.map((project, index) => {
+          const position = leafPositions[project.id] || { x: 50, y: 50 };
+          return (
+            <div
               key={project.id}
-              className="cursor-pointer transition-transform duration-300 hover:scale-110"
+              className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group"
+              style={{
+                left: `${position.x}%`,
+                top: `${position.y}%`,
+                opacity: treeGrown ? 1 : 0,
+                transition: 'all 1s ease-out',
+                transitionDelay: `${index * 200 + 1500}ms`
+              }}
               onClick={() => handleNodeClick(project)}
-              transform={`translate(${project.position.x}, ${project.position.y})`}
             >
-              {/* Node glow effect */}
-              <circle
-                r="25"
-                fill={getPhaseColor(project.phase)}
-                opacity={treeGrown ? 0.2 : 0}
-                className="transition-all duration-1000 ease-out animate-pulse-glow"
+              {/* Leaf glow effect */}
+              <div 
+                className="absolute inset-0 rounded-full animate-pulse"
                 style={{
-                  transitionDelay: `${index * 150 + 1200}ms`
+                  background: `radial-gradient(circle, ${getPhaseColor(project.phase)}40 0%, transparent 70%)`,
+                  width: '60px',
+                  height: '60px',
+                  transform: 'translate(-50%, -50%)',
+                  left: '50%',
+                  top: '50%'
                 }}
               />
               
-              {/* Main node */}
-              <circle
-                r="15"
-                fill={getPhaseColor(project.phase)}
-                stroke="hsl(var(--background))"
-                strokeWidth="3"
-                opacity={treeGrown ? 1 : 0}
-                className="transition-all duration-1000 ease-out"
-                style={{
-                  transitionDelay: `${index * 150 + 1000}ms`
-                }}
-              />
-              
-              {/* Node label */}
-              <text
-                y="35"
-                textAnchor="middle"
-                className="fill-foreground text-xs font-medium pointer-events-none"
-                opacity={treeGrown ? 1 : 0}
-                style={{
-                  transitionDelay: `${index * 150 + 1400}ms`
+              {/* Main leaf node */}
+              <div 
+                className="relative w-8 h-8 rounded-full border-2 border-white/80 shadow-lg transition-all duration-300 group-hover:scale-125 group-hover:shadow-xl flex items-center justify-center"
+                style={{ 
+                  backgroundColor: getPhaseColor(project.phase),
+                  boxShadow: `0 0 15px ${getPhaseColor(project.phase)}60`
                 }}
               >
-                {project.date}
-              </text>
-            </g>
-          ))}
-        </svg>
+                <div className="w-2 h-2 bg-white/90 rounded-full animate-pulse" />
+              </div>
+              
+              {/* Project label */}
+              <div 
+                className="absolute top-10 left-1/2 transform -translate-x-1/2 bg-background/90 backdrop-blur-sm px-2 py-1 rounded-lg border border-border/50 opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap z-10"
+                style={{ fontSize: '11px' }}
+              >
+                <div className="font-medium text-foreground">{project.title}</div>
+                <div className="text-xs text-muted-foreground">{project.date}</div>
+              </div>
+            </div>
+          );
+        })}
       </div>
 
       {/* Project Details Panel */}
       {selectedProject && (
-        <div className="absolute inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center p-6 animate-fade-in">
-          <Card className="max-w-md w-full bg-gradient-card border-border/50 relative animate-scale-in">
+        <div className="absolute inset-0 bg-background/90 backdrop-blur-md flex items-center justify-center p-6 animate-fade-in z-20">
+          <Card className="max-w-lg w-full bg-gradient-card border-border/50 relative animate-scale-in shadow-2xl">
             <Button
               variant="ghost"
               size="icon"
-              className="absolute top-4 right-4"
+              className="absolute top-4 right-4 hover:bg-destructive/20"
               onClick={handleBackToTree}
             >
               <X className="w-4 h-4" />
             </Button>
             
             <div className="p-6">
-              <div className="mb-4">
-                <h3 className="text-xl font-display font-bold mb-2">
-                  {selectedProject.title}
-                </h3>
-                <p className="text-accent-blue font-mono text-sm mb-3">
-                  {selectedProject.date}
+              {/* Project Header */}
+              <div className="mb-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <div 
+                    className="w-4 h-4 rounded-full"
+                    style={{ backgroundColor: getPhaseColor(selectedProject.phase) }}
+                  />
+                  <h3 className="text-2xl font-display font-bold">
+                    {selectedProject.title}
+                  </h3>
+                </div>
+                <p className="text-accent-blue font-mono text-sm mb-4">
+                  {selectedProject.date} • {selectedProject.phase.charAt(0).toUpperCase() + selectedProject.phase.slice(1)} Phase
                 </p>
-                <p className="text-muted-foreground mb-4">
+                <p className="text-muted-foreground leading-relaxed">
                   {selectedProject.fullDescription}
                 </p>
               </div>
 
-              <div className="mb-4">
-                <h4 className="font-semibold mb-2">Technologies</h4>
+              {/* Technologies */}
+              <div className="mb-6">
+                <h4 className="font-semibold mb-3 text-foreground">Technologies Used</h4>
                 <div className="flex flex-wrap gap-2">
                   {selectedProject.technologies.map((tech) => (
-                    <Badge key={tech} variant="secondary">
+                    <Badge 
+                      key={tech} 
+                      variant="secondary"
+                      className="bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                    >
                       {tech}
                     </Badge>
                   ))}
                 </div>
               </div>
 
-              <div className="flex gap-3">
+              {/* Action Buttons */}
+              <div className="flex gap-3 mb-4">
                 <Button
                   variant="outline"
-                  className="flex-1"
+                  className="flex-1 hover:bg-primary/10 border-primary/30"
                   onClick={() => window.open(selectedProject.githubLink, '_blank')}
                 >
                   <Github className="w-4 h-4 mr-2" />
-                  GitHub
+                  View Code
                 </Button>
                 {selectedProject.demoLink && (
                   <Button
-                    className="flex-1"
+                    className="flex-1 bg-primary hover:bg-primary/90"
                     onClick={() => window.open(selectedProject.demoLink, '_blank')}
                   >
                     <ExternalLink className="w-4 h-4 mr-2" />
-                    Demo
+                    Live Demo
                   </Button>
                 )}
               </div>
 
               <Button
                 variant="ghost"
-                className="w-full mt-4"
+                className="w-full hover:bg-muted/50"
                 onClick={handleBackToTree}
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Tree
+                Return to Yggdrasil
               </Button>
             </div>
           </Card>
@@ -297,8 +281,9 @@ const YggdrasilTree = () => {
       )}
 
       {/* Controls hint */}
-      <div className="absolute bottom-4 left-4 text-xs text-muted-foreground bg-background/80 rounded-lg p-2">
-        Click & drag to explore • Scroll to zoom • Click nodes for details
+      <div className="absolute bottom-4 left-4 text-xs text-white/90 bg-black/40 backdrop-blur-sm rounded-lg p-3 border border-white/20">
+        <div className="font-medium mb-1">🌳 Explore the World Tree</div>
+        <div>Click leaf nodes to discover projects • Hover for details</div>
       </div>
     </div>
   );

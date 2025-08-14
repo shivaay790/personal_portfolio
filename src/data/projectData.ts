@@ -9,6 +9,7 @@ export interface Project {
   demoLink?: string;
   phase: 'roots' | 'learning' | 'advanced' | 'research';
   position: { x: number; y: number }; // Position on the tree
+  orbImage: string;
 }
 
 export const projectsData: Project[] = [
@@ -21,7 +22,8 @@ export const projectsData: Project[] = [
     technologies: ['Academic Foundation'],
     githubLink: '#',
     phase: 'roots',
-    position: { x: 0, y: 0 }
+    position: { x: 50, y: 85 },
+    orbImage: '/lovable-uploads/c52d682d-306f-430f-b337-630faabf776f.png'
   },
   {
     id: 'sentiment-analysis',
@@ -33,7 +35,8 @@ export const projectsData: Project[] = [
     githubLink: 'https://github.com/yourusername/sentiment-analysis',
     demoLink: 'https://sentiment-demo.com',
     phase: 'learning',
-    position: { x: -150, y: -100 }
+    position: { x: 35, y: 70 },
+    orbImage: '/lovable-uploads/33ef3e46-a9dd-449d-b1b1-961d9284834e.png'
   },
   {
     id: 'hand-gesture',
@@ -45,7 +48,8 @@ export const projectsData: Project[] = [
     githubLink: 'https://github.com/yourusername/hand-gesture',
     demoLink: 'https://gesture-demo.com',
     phase: 'learning',
-    position: { x: 150, y: -120 }
+    position: { x: 65, y: 70 },
+    orbImage: '/lovable-uploads/7ea291bf-9464-4c1a-bca0-d5796df6f9ab.png'
   },
   {
     id: 'empathic-chatbot',
@@ -57,7 +61,8 @@ export const projectsData: Project[] = [
     githubLink: 'https://github.com/yourusername/empathic-chatbot',
     demoLink: 'https://chatbot-demo.com',
     phase: 'advanced',
-    position: { x: -200, y: -200 }
+    position: { x: 25, y: 55 },
+    orbImage: '/lovable-uploads/0198c131-3560-4b3c-b4a3-b8b5753cee5b.png'
   },
   {
     id: 'crowd-counting',
@@ -68,7 +73,8 @@ export const projectsData: Project[] = [
     technologies: ['Python', 'PyTorch', 'Computer Vision', 'CNNs'],
     githubLink: 'https://github.com/yourusername/crowd-counting',
     phase: 'advanced',
-    position: { x: 0, y: -250 }
+    position: { x: 75, y: 55 },
+    orbImage: '/lovable-uploads/26685107-4d62-4df2-b678-ef0e3dccebb4.png'
   },
   {
     id: 'virtual-tryon',
@@ -80,7 +86,8 @@ export const projectsData: Project[] = [
     githubLink: 'https://github.com/yourusername/virtual-tryon',
     demoLink: 'https://vton-demo.com',
     phase: 'advanced',
-    position: { x: 200, y: -220 }
+    position: { x: 45, y: 40 },
+    orbImage: '/lovable-uploads/eda24642-79a3-4c77-9f4e-e7de1e200b2e.png'
   },
   {
     id: 'research-paper',
@@ -91,7 +98,8 @@ export const projectsData: Project[] = [
     technologies: ['Research', 'Academic Writing', 'Experimental Design'],
     githubLink: 'https://github.com/yourusername/research',
     phase: 'research',
-    position: { x: -100, y: -300 }
+    position: { x: 55, y: 40 },
+    orbImage: '/lovable-uploads/0b2476cd-d781-46b2-8713-c15a18949d04.png'
   },
   {
     id: 'capstone-project',
@@ -103,6 +111,7 @@ export const projectsData: Project[] = [
     githubLink: 'https://github.com/yourusername/capstone',
     demoLink: 'https://capstone-demo.com',
     phase: 'research',
-    position: { x: 100, y: -320 }
+    position: { x: 50, y: 25 },
+    orbImage: '/lovable-uploads/c4cc2c4d-4526-426f-80d5-cfffd3425c71.png'
   }
 ];

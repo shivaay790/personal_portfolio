@@ -219,14 +219,55 @@ const PlaygroundSection = () => {
         </div>
 
         <div className="text-center mt-12 animate-fade-in">
-          <Card className="max-w-md mx-auto p-6 bg-gradient-card border-border/50">
-            <div className="space-y-3">
+          <Card className="max-w-2xl mx-auto p-8 bg-gradient-card border-border/50">
+            <div className="space-y-6">
               <Sparkles className="w-8 h-8 text-primary mx-auto" />
-              <h3 className="font-semibold">More Experiments Coming Soon!</h3>
-              <p className="text-sm text-muted-foreground">
-                I'm always building new interactive demos and AI experiments. 
-                Follow my journey to see what's next! ✨
+              <h3 className="text-xl font-semibold">Try My Live Projects!</h3>
+              <p className="text-muted-foreground">
+                Experience my journey projects in action. Each link takes you to interactive demos 
+                where you can explore the technology hands-on.
               </p>
+              
+              <div className="grid md:grid-cols-3 gap-4 mt-6">
+                <Button 
+                  variant="outline" 
+                  className="h-20 flex-col gap-2 hover:bg-primary/10 border-primary/30"
+                  onClick={() => window.open('#', '_blank')}
+                >
+                  <img 
+                    src="/lovable-uploads/33ef3e46-a9dd-449d-b1b1-961d9284834e.png" 
+                    alt="Sentiment Analysis" 
+                    className="w-8 h-8 rounded-full"
+                  />
+                  <span className="text-xs">Sentiment Analysis</span>
+                </Button>
+                
+                <Button 
+                  variant="outline" 
+                  className="h-20 flex-col gap-2 hover:bg-primary/10 border-primary/30"
+                  onClick={() => window.open('#', '_blank')}
+                >
+                  <img 
+                    src="/lovable-uploads/7ea291bf-9464-4c1a-bca0-d5796df6f9ab.png" 
+                    alt="Hand Gesture" 
+                    className="w-8 h-8 rounded-full"
+                  />
+                  <span className="text-xs">Hand Gesture Recognition</span>
+                </Button>
+                
+                <Button 
+                  variant="outline" 
+                  className="h-20 flex-col gap-2 hover:bg-primary/10 border-primary/30"
+                  onClick={() => window.open('#', '_blank')}
+                >
+                  <img 
+                    src="/lovable-uploads/eda24642-79a3-4c77-9f4e-e7de1e200b2e.png" 
+                    alt="Virtual Try-On" 
+                    className="w-8 h-8 rounded-full"
+                  />
+                  <span className="text-xs">Virtual Try-On</span>
+                </Button>
+              </div>
             </div>
           </Card>
         </div>

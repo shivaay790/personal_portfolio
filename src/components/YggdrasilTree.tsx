@@ -143,10 +143,101 @@ const YggdrasilTree = () => {
         ))}
       </div>
 
-      {/* Project Leaf Nodes on Tree */}
+      {/* Energy Connections between Orbs */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ opacity: treeGrown ? 1 : 0, transition: 'opacity 1s ease-out', transitionDelay: '2s' }}>
+        {/* Connection lines with energy flow */}
+        <defs>
+          <linearGradient id="energyGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.1" />
+            <stop offset="50%" stopColor="hsl(var(--primary))" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.1" />
+          </linearGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge> 
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        
+        {/* Connect college start to first projects */}
+        <line 
+          x1="50%" y1="85%" 
+          x2="35%" y2="70%" 
+          stroke="url(#energyGradient)" 
+          strokeWidth="2" 
+          filter="url(#glow)"
+          className="animate-pulse"
+        />
+        <line 
+          x1="50%" y1="85%" 
+          x2="65%" y2="70%" 
+          stroke="url(#energyGradient)" 
+          strokeWidth="2" 
+          filter="url(#glow)"
+          className="animate-pulse"
+        />
+        
+        {/* Connect learning projects to advanced ones */}
+        <line 
+          x1="35%" y1="70%" 
+          x2="25%" y2="55%" 
+          stroke="url(#energyGradient)" 
+          strokeWidth="2" 
+          filter="url(#glow)"
+          className="animate-pulse"
+        />
+        <line 
+          x1="65%" y1="70%" 
+          x2="75%" y2="55%" 
+          stroke="url(#energyGradient)" 
+          strokeWidth="2" 
+          filter="url(#glow)"
+          className="animate-pulse"
+        />
+        
+        {/* Connect to research level */}
+        <line 
+          x1="25%" y1="55%" 
+          x2="45%" y2="40%" 
+          stroke="url(#energyGradient)" 
+          strokeWidth="2" 
+          filter="url(#glow)"
+          className="animate-pulse"
+        />
+        <line 
+          x1="75%" y1="55%" 
+          x2="55%" y2="40%" 
+          stroke="url(#energyGradient)" 
+          strokeWidth="2" 
+          filter="url(#glow)"
+          className="animate-pulse"
+        />
+        
+        {/* Connect to capstone */}
+        <line 
+          x1="45%" y1="40%" 
+          x2="50%" y2="25%" 
+          stroke="url(#energyGradient)" 
+          strokeWidth="2" 
+          filter="url(#glow)"
+          className="animate-pulse"
+        />
+        <line 
+          x1="55%" y1="40%" 
+          x2="50%" y2="25%" 
+          stroke="url(#energyGradient)" 
+          strokeWidth="2" 
+          filter="url(#glow)"
+          className="animate-pulse"
+        />
+      </svg>
+
+      {/* Project Orb Nodes on Tree */}
       <div className="relative w-full h-full">
         {projectsData.map((project, index) => {
-          const position = leafPositions[project.id] || { x: 50, y: 50 };
+          const position = project.position;
           return (
             <div
               key={project.id}
@@ -160,36 +251,46 @@ const YggdrasilTree = () => {
               }}
               onClick={() => handleNodeClick(project)}
             >
-              {/* Leaf glow effect */}
+              {/* Orbital energy ring */}
               <div 
                 className="absolute inset-0 rounded-full animate-pulse"
                 style={{
-                  background: `radial-gradient(circle, ${getPhaseColor(project.phase)}40 0%, transparent 70%)`,
-                  width: '60px',
-                  height: '60px',
+                  background: `radial-gradient(circle, ${getPhaseColor(project.phase)}20 0%, transparent 70%)`,
+                  width: '80px',
+                  height: '80px',
                   transform: 'translate(-50%, -50%)',
                   left: '50%',
                   top: '50%'
                 }}
               />
               
-              {/* Main leaf node */}
-              <div 
-                className="relative w-8 h-8 rounded-full border-2 border-white/80 shadow-lg transition-all duration-300 group-hover:scale-125 group-hover:shadow-xl flex items-center justify-center"
-                style={{ 
-                  backgroundColor: getPhaseColor(project.phase),
-                  boxShadow: `0 0 15px ${getPhaseColor(project.phase)}60`
-                }}
-              >
-                <div className="w-2 h-2 bg-white/90 rounded-full animate-pulse" />
+              {/* Magical Orb Node */}
+              <div className="relative w-16 h-16 transition-all duration-300 group-hover:scale-125 group-hover:shadow-2xl">
+                <img 
+                  src={project.orbImage}
+                  alt={`${project.title} orb`}
+                  className="w-full h-full object-cover rounded-full border-2 border-white/60 shadow-lg"
+                  style={{
+                    filter: 'brightness(1.1) contrast(1.2) saturate(1.2)',
+                    boxShadow: `0 0 30px ${getPhaseColor(project.phase)}60`
+                  }}
+                />
+                {/* Pulsing energy aura */}
+                <div 
+                  className="absolute inset-0 rounded-full opacity-60"
+                  style={{
+                    background: `radial-gradient(circle, transparent 50%, ${getPhaseColor(project.phase)}30 70%, transparent 100%)`,
+                    animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                  }}
+                />
               </div>
               
               {/* Project label */}
               <div 
-                className="absolute top-10 left-1/2 transform -translate-x-1/2 bg-background/90 backdrop-blur-sm px-2 py-1 rounded-lg border border-border/50 opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap z-10"
-                style={{ fontSize: '11px' }}
+                className="absolute top-20 left-1/2 transform -translate-x-1/2 bg-background/90 backdrop-blur-sm px-3 py-2 rounded-lg border border-border/50 opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap z-10 shadow-xl"
+                style={{ fontSize: '12px' }}
               >
-                <div className="font-medium text-foreground">{project.title}</div>
+                <div className="font-semibold text-foreground">{project.title}</div>
                 <div className="text-xs text-muted-foreground">{project.date}</div>
               </div>
             </div>

@@ -47,10 +47,10 @@ const Navigation = () => {
                 About
               </button>
               <button 
-                onClick={() => scrollToSection('projects')}
+                onClick={() => scrollToSection('about')}
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
-                Projects
+                My Journey
               </button>
               <button 
                 onClick={() => scrollToSection('playground')}

@@ -1,0 +1,8 @@
+if [ "$GIT_AUTHOR_NAME" = "gpt-engineer-app[bot]" ] || [ "$GIT_AUTHOR_NAME" = "lovable-bot" ]; then
+    export GIT_AUTHOR_NAME="Shivaay Dhondiyal"
+    export GIT_AUTHOR_EMAIL="shivaaydhondiyal23@gmail.com"
+fi
+if [ "$GIT_COMMITTER_NAME" = "gpt-engineer-app[bot]" ] || [ "$GIT_COMMITTER_NAME" = "lovable-bot" ]; then
+    export GIT_COMMITTER_NAME="Shivaay Dhondiyal"
+    export GIT_COMMITTER_EMAIL="shivaaydhondiyal23@gmail.com"
+fi

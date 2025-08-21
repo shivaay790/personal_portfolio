@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { X, Github, ExternalLink, ArrowLeft } from 'lucide-react';
 import { projectsData, Project } from '@/data/projectData';
+import { devLog } from '@/lib/logger';
 
 
 interface TreeNode {
@@ -42,6 +43,7 @@ const YggdrasilTree = () => {
 
   const handleNodeClick = (project: Project) => {
     setSelectedProject(project);
+    devLog('tree:select', project.id);
     // Center and zoom to the node
     const nodeX = project.position.x;
     const nodeY = project.position.y;
@@ -51,6 +53,7 @@ const YggdrasilTree = () => {
 
   const handleBackToTree = () => {
     setSelectedProject(null);
+    devLog('tree:back');
     setPan({ x: 0, y: 0 });
     setZoom(1);
   };
@@ -119,7 +122,7 @@ const YggdrasilTree = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-90"
         style={{ 
-          backgroundImage: `url(/lovable-uploads/fa1fe5e0-7f22-4b19-80c9-0c613c05cf0f.png)`,
+          backgroundImage: `url(/orbs/fa1fe5e0-7f22-4b19-80c9-0c613c05cf0f.png)`,
           filter: 'brightness(0.8) contrast(1.1)'
         }}
       />
@@ -127,17 +130,20 @@ const YggdrasilTree = () => {
       {/* Overlay gradient for better text visibility */}
       <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-background/30" />
       
-      {/* Particle effects */}
+      {/* Particle effects - increased density and smoother gradient flicker */}
       <div className="absolute inset-0 pointer-events-none">
-        {[...Array(30)].map((_, i) => (
+        {[...Array(150)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-yellow-400/60 rounded-full animate-float"
+            className="absolute rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 4}s`,
-              animationDuration: `${4 + Math.random() * 3}s`
+              width: `${Math.random() * 3 + 1}px`,
+              height: `${Math.random() * 3 + 1}px`,
+              background: 'radial-gradient(circle, rgba(250, 204, 21, 0.95) 0%, rgba(250, 204, 21, 0.5) 45%, rgba(250, 204, 21, 0) 75%)',
+              filter: 'blur(0.3px)',
+              animation: `twinkle ${2 + Math.random() * 3}s ease-in-out ${Math.random()}s infinite, float ${4 + Math.random() * 4}s ease-in-out ${Math.random()}s infinite`
             }}
           />
         ))}

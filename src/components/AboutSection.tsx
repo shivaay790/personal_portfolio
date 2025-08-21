@@ -28,11 +28,13 @@ const SkillBubble = ({ skill, icon: Icon, level }: { skill: string, icon: any, l
 const AboutSection = () => {
   const skills = [
     { skill: "Python", icon: Code2, level: 95 },
-    { skill: "C++", icon: Cpu, level: 90 },
-    { skill: "Machine Learning", icon: Brain, level: 88 },
-    { skill: "React/TypeScript", icon: Code2, level: 85 },
-    { skill: "Neural Networks", icon: Brain, level: 82 },
-    { skill: "Database Design", icon: Database, level: 80 },
+    { skill: "ML/DL Architecture", icon: Brain, level: 90 },
+    { skill: "C++", icon: Cpu, level: 88 },
+    { skill: "C", icon: Cpu, level: 82 },
+    { skill: "MySQL", icon: Database, level: 80 },
+    { skill: "HTML/CSS/JS", icon: Code2, level: 85 },
+    { skill: "TSX / JSX", icon: Code2, level: 84 },
+    { skill: "React", icon: Code2, level: 86 },
   ];
 
 

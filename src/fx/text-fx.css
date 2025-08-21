@@ -1,0 +1,42 @@
+.fx-text { display: inline-block; }
+
+/* Reveal base state */
+.fx-text[data-fx~="reveal"] [data-fx-chunk] {
+  opacity: 0;
+  transform: translateY(0.4em);
+  will-change: transform, opacity;
+}
+
+.fx-text[data-fx-ready][data-fx~="reveal"] [data-fx-chunk] {
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform var(--fx-duration, 700ms) ease-out var(--fx-delay, 0ms),
+              opacity var(--fx-duration, 700ms) ease-out var(--fx-delay, 0ms);
+}
+
+/* Shimmer */
+.fx-text[data-fx~="shimmer"] {
+  position: relative;
+  background: linear-gradient(120deg, currentColor 0%, currentColor 40%, rgba(255,255,255,0.6) 50%, currentColor 60%, currentColor 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% 100%;
+  animation: fxShimmer var(--fx-duration, 1.8s) ease-in-out var(--fx-delay, 0s) both;
+}
+
+@keyframes fxShimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+/* Hover micro-lift */
+.fx-text[data-fx~="hover"]:hover {
+  transform: translateY(-1px) scale(1.01);
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.12));
+  transition: transform 150ms ease, filter 150ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-text[data-fx~="shimmer"] { animation: none; background-size: 100% 100%; }
+  .fx-text[data-fx~="reveal"] [data-fx-chunk] { transition: none; opacity: 1; transform: none; }
+}
+
+

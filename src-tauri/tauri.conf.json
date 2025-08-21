@@ -1,0 +1,50 @@
+{
+  "productName": "Shivaay Portfolio",
+  "version": "1.0.0",
+  "identifier": "com.shivaay.portfolio",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devUrl": "http://localhost:8080",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Shivaay Portfolio",
+        "width": 1200,
+        "height": 800,
+        "resizable": true,
+        "center": true,
+        "fullscreen": false
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png", 
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  },
+  "plugins": {
+    "shell": {
+      "open": true,
+      "scope": [
+        {
+          "name": "execute-commands",
+          "cmd": "cmd",
+          "args": ["/C", { "validator": "\\S+" }],
+          "sidecar": false
+        }
+      ]
+    }
+  }
+}

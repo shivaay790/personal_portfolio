@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
+import { devLog } from '@/lib/logger';
 
 const Navigation = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -15,6 +16,7 @@ const Navigation = () => {
       setScrollProgress(progress);
       setIsVisible(currentScrollY < lastScrollY || currentScrollY < 50);
       setLastScrollY(currentScrollY);
+      devLog('nav', { currentScrollY, progress: Math.round(progress) });
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -24,6 +26,7 @@ const Navigation = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
+      devLog('nav:scrollTo', id);
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
@@ -76,8 +79,8 @@ const Navigation = () => {
         </div>
       </div>
       
-      {/* Progress Bar */}
-      <div className="h-1 bg-background">
+      {/* Progress Bar - sticky at top */}
+      <div className="h-1 bg-background sticky top-0">
         <div 
           className="h-full bg-gradient-primary transition-all duration-300"
           style={{ width: `${scrollProgress}%` }}

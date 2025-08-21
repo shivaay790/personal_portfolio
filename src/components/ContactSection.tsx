@@ -51,16 +51,37 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast({
-      title: "Message sent! 🚀",
-      description: "Thanks for reaching out! I'll get back to you soon.",
-    });
-    
-    setFormData({ name: '', email: '', message: '' });
-    setIsSubmitting(false);
+    try {
+      // Send email via API
+      const response = await fetch('/api/send-contact-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast({
+          title: "Message sent!",
+          description: "Thanks for reaching out! I'll get back to you soon. Check your email for confirmation.",
+        });
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        throw new Error(result.message || 'Failed to send message');
+      }
+    } catch (error) {
+      console.error('Contact form error:', error);
+      toast({
+        title: "Error sending message",
+        description: "Something went wrong. Please try again or contact me directly at shivaaydhondiyal23@gmail.com",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -156,7 +177,7 @@ const ContactSection = () => {
                       Sending...
                     </span>
                   ) : (
-                    'Send Message 🚀'
+                    'Send Message'
                   )}
                 </Button>
               </form>
@@ -192,19 +213,19 @@ const ContactSection = () => {
               
               <div className="space-y-3">
                 <SocialLink 
-                  href="https://github.com/shivaay"
+                  href="https://github.com/shivaay790"
                   icon={Github}
                   label="GitHub"
                 />
                 
                 <SocialLink 
-                  href="https://linkedin.com/in/shivaay"
+                  href="https://www.linkedin.com/in/shivaay-dhondiyal/"
                   icon={Linkedin}
                   label="LinkedIn"
                 />
                 
                 <SocialLink 
-                  href="mailto:shivaay@example.com"
+                  href="mailto:shivaaydhondiyal23@gmail.com"
                   icon={Mail}
                   label="Email"
                 />
@@ -222,7 +243,7 @@ const ContactSection = () => {
                 </div>
                 <p className="text-sm text-muted-foreground mt-3">
                   Currently seeking exciting AI/ML and full-stack development opportunities. 
-                  Let's build something amazing together! 🚀
+                  Let's build something amazing together!
                 </p>
               </CardContent>
             </Card>

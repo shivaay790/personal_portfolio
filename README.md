@@ -1,22 +1,22 @@
-# Welcome to your Lovable project
+# Welcome to Shivaay's Orbs Project
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/cb55e472-f837-42a2-a047-225e429ed5e8
+**URL**: https://shivaay-orbs.dev/projects/personal-portfolio
 
 ## How can I edit this code?
 
 There are several ways of editing your application.
 
-**Use Lovable**
+**Use Orbs Platform**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/cb55e472-f837-42a2-a047-225e429ed5e8) and start prompting.
+Simply visit the [Orbs Project](https://shivaay-orbs.dev/projects/personal-portfolio) and start prompting.
 
-Changes made via Lovable will be committed automatically to this repo.
+Changes made via Orbs will be committed automatically to this repo.
 
 **Use your preferred IDE**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Orbs.
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
@@ -62,12 +62,12 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/cb55e472-f837-42a2-a047-225e429ed5e8) and click on Share -> Publish.
+Simply open [Orbs](https://shivaay-orbs.dev/projects/personal-portfolio) and click on Share -> Publish.
 
-## Can I connect a custom domain to my Lovable project?
+## Can I connect a custom domain to my Orbs project?
 
 Yes, you can!
 
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Read more here: [Setting up a custom domain](https://docs.shivaay-orbs.dev/tips-tricks/custom-domain#step-by-step-guide)

@@ -2,14 +2,15 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Code, Brain, Sparkles, Zap, Coffee } from 'lucide-react';
 import heroAvatar from '@/assets/hero-avatar.jpg';
+import { devLog } from '@/lib/logger';
 
 const AnimatedTitle = () => {
   const titles = [
     "Code Magician 🪄",
-    "AI Explorer 🚀", 
+    "AI Explorer", 
     "Bug Whisperer 🐛",
     "Neural Network Ninja 🧠",
-    "Algorithm Artist 🎨"
+    "Algorithm Artist"
   ];
   
   const [currentTitle, setCurrentTitle] = useState(0);
@@ -47,6 +48,7 @@ const HeroSection = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
+      devLog('hero:scrollTo', id);
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };

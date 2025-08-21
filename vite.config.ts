@@ -1,12 +1,13 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
+// @ts-ignore
 import { vitonApiPlugin } from "./vite-plugin-viton-api.js";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   base: '/',
-  server: {
+  server: mode === 'development' ? {
     host: "::",
     port: 8080,
     fs: {
@@ -29,15 +30,26 @@ export default defineConfig(({ mode }) => ({
         rewrite: (path) => path.replace(/^\/viton\/back/, '')
       }
     }
-  },
+  } : undefined,
   plugins: [
     react(),
-    vitonApiPlugin(),
-    // mode === 'development'
+    mode === 'development' ? vitonApiPlugin() : null,
   ].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+    },
+  },
+  build: {
+    outDir: 'dist',
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          ui: ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu', '@radix-ui/react-tooltip'],
+        },
+      },
     },
   },
 }));

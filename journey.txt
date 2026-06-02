@@ -1,0 +1,106 @@
+SUMMARY 
+Proficient in DL, computer vision, and AI system development, experienced with RL, NLP, CNNs, and transformer-based sentiment analysis. 
+Built semantic segmentation models, IR image enhancement pipelines, VITON-based virtual try-on frameworks, LLM-powered mental health chatbot, AI-integrated government internship portal 
+Built an LLM-powered mental health chatbot leveraging FastAPI, React, FAISS, and RAG for intelligent retrieval and recommendation. 
+I have experience with MCP servers and multi-agent AI frameworks. Worked under Prof. Dinesh K Vishwakarma (top 2% scientist of the world) on a research paper in deepfake detection (under review). Worked under Prof. (Dr.) Rahul Katarya (top 2% scientist of the world) on a research paper in Fundas diseases classification (under review). 
+
+EXPERIENCE 
+AI Engineer – Stealth Startup (Partnered with Prosper AI) 	Nov 2025 – Dec 2025 
+
+Automated analytics for 1M+ healthcare calls/month, integrated Metabase dashboards, translating stakeholder requirements to scalable and reliable AI solutions with reduced escalations to 28%.  
+Built voice agent workflows for Fortune-30 hospitals, boosting automation from ~35% to 60%+ and cutting backend integration errors by 40%, using STT/TTS stacks.   
+
+AI Research Intern –  DTU	June 2025 – July 2025 
+Developed Liquid Neural Network architecture for audio deepfake detection, achieving superior cross-dataset generalization compared to prior SOTA models like Wav2Vec2.0 and Whisper-DF.   
+
+AI Intern – COTECH IT Solutions	Sept 2024 – Oct 2024 
+Sentiment Analysis (NLP Project): Developed an NLP-based sentiment classifier on product reviews using TF-IDF, Word2Vec and Transformer models (BERT). 
+Carpole Problem (RL Project); Designed an RL-based optimization system using Proximal Policy Optimization (PPO), in customized simulation environments 
+
+ 
+
+EDUCATION 
+B.Tech in Computer Science and engineering| Delhi Technological University CGPA:8.5				 2024 – Present 
+Senior Secondary (Class XII), CBSE | Delhi Private School, Dubai (DPSD) Percentage: 94.20%				  2024 
+
+ 
+
+PROJECTS 
+1.    AI-POWERED SEO OPTIMIZATION (BACKEND LEAD)	Github https://github.com/shivaay790/SEO_forge, Oct 25, 2024
+Developed an AI-driven SEO optimization tool using BERT embeddings to enhance content ranking and keyword relevance. 
+Designed and implemented a backend pipeline integrating TF-IDF, Named Entity Recognition (NER), and keyword clustering for real-time content analysis. 
+
+ 
+
+Mental health chatbot	Github https://github.com/shivaay790/Mental-Health-Chatbot, Mar 29, 2025
+Designed modular backend featuring tonality-aware response generation, chat history persistence, and coping-strategy prompt engineering 
+Implemented LangChain pipelines with sentence-transformer embeddings, PDF knowledge retrieval, and crisis-trigger detection for safety assurance. 
+Built a Mental Health Chatbot integrating RAG with FAISS vector search and Gemini 2.0 Flash for context-aware, empathetic conversations. 
+
+ 
+
+3.    Hand gesture	Github https://github.com/shivaay790/hand_gesture, dec 29, 2024
+Built a real-time gesture-controlled drone system integrating MediaPipe HandLandmarker, CNN-based gesture classification, and PyBullet physics simulation for flight control. 
+Optimized multi-modal ML integration (Whisper STT, OpenCV, Keras models) with debouncing, CORS-secured APIs, and 20 FPS simulation loop for responsive control. 
+
+ 
+
+4.     DL Crowd counting	Github https://github.com/shivaay790/DL_crowd_counting,  Jun 21, 2025
+Designed a crowd analytics model using VGG16 backbone with CBAM attention and multi-scale dilated convolutions for precise density estimation 
+Benchmarked models like CSRNet, MCNN, and Multi-Dilated CNN + CBAM. 
+Integrated risk analytics and hotspot detection via gradient-based stampede prediction and DBSCAN clustering for high-risk zones. 
+
+ 
+
+5.      Personal Portfolio	Demo  https://shivaay123.netlify.app/
+Built an interactive 3D portfolio using React, Three.js, and Tailwind, featuring a cinematic wormhole intro and responsive UI. 
+Integrated VITON AI project launcher, Resend email automation, and optional Tauri desktop app support. 
+Engineered a modular system with Vite + Express middleware, custom shaders, and seamless Netlify deployment 
+
+ 
+
+6.    Government internship portal	Github https://github.com/shivaay790/sih_proj, Sep 12, 2025
+
+Implemented NLP-powered resume parsing, skill gap analysis, and RAG-based Gemini chatbot, enhancing personalization and automation 
+Built a React + Tailwind frontend with dynamic dashboards, AI resume builder, and Selenium-integrated government portal scrapers 
+for real-time data integration 
+
+ 
+
+7.    IR IMAGE ENHANCEMENT	Github https://github.com/RS-010806/Thermal_SR, Oct 15, 2025
+Built physics-guided multi-modal thermal SR (Landsat-8 TIRS 100 m → 30 m) with cross-modal Swin Transformers and emissivity- gated fusion. 
+Enforced Planck-based radiometry, PSF-constrained energy, and multi-loss supervision (L₁, perceptual, spectral, edge, GAN). 
+Achieved high PSNR/SSIM on SSL4EO GeoTIFF data using patch-wise mixed-precision training and Kelvin RMSE validation. 
+
+
+8.     VITON	Github  https://github.com/shivaay790/VITON, july 30 2025
+Implemented pose estimation, cloth warping, and semantic segmentation with PyTorch, OpenCV, and Pinecone vector search for similarity- based recommendations. 
+Built a vector-based recommendation engine leveraging Fashion-CLIP embeddings and semantic garment search via Pinecone similarity indexing. 
+Enhanced image realism through illumination-aware warping and perceptual loss tuning, improving garment–body texture fidelity 
+ 
+
+POSITION OF RESPONSIBILITY 
+
+- Cohead in AIMS DTU, The AIML Society of DTU, Aug 2024 - Jan 2026 
+- Corporate Executive, Yuvaan, Literature & Film Fest DTU, Aug 2024 – Aug 2025 
+- 
+
+ACHIEVEMENTS 
+- 2nd in Dream Team Challenge Hackathon (Competing amongst 1000+ participants).	Feb 2025 
+- 2nd in Research Forge Hackathon (Competing amongst 1200+ participants).	 Feb 2025 
+- 1st APOGEE '25 CTF organized by BITS Pilani, amongst 1500+ participants. 	Mar 2025   
+- grand finalist in SIH (smart india hacathon) (competing amongst 10lakh+ participants), Dec 2025 
+- 1st  ZervAI'25 Datathon organized by IIT Bombay, amongst 1000+ participants. 	Dec 2025 
+- 2nd in Pacakage'25 Case Comp organized by IIT Bombay (competing amongst 700+ participants), Dec 2025 
+
+CERTIFICATON 
+- Intro to Machine Learning – Kaggle, 11 oct 2024 (certificate) 
+-  Intermediate Machine Learning – kaggle, 12 oct 2024 (certificate) 
+- Machine Learning Specialization - Deeplearning.AI, 2 jan 2025 (certificate) 
+- Deep Learning Specialization - Deeplearning.AI, 14 march 2025 (certificate) 
+- Python for Trading: Basic – Quantinsti, 18 march 2025  (certificate) 
+
+ 
+
+ 
+ You are are UI/UX developer and an expert in making UI, imrpove my current UI specifically the yagrasill part (C:\Users\Shivaay Dhondiyal\Desktop\shivaay\coding\2_projects\5_personal_portfolio\src\components\YggdrasilTree.tsx). so i want to put my full journey read the journey.txt to do this. so do it in proper order of dates. startin from school in 2011- 2024 and the collage start. joinig aims and yuvaan as 2 branches each node tells about each. ai intern at code tech. keep Intro to Machine Learning, Intermediate Machine Learning togather like 2 branch, then AI-Powered SEO Optimization, then Hand Gesture Recognition. then keep these 2 as 2 branches Machine Learning Specialization & dl specialtion. then Python for Trading: Basic, then Mental Health Chatbot, then 2 braches Dream Team Challenge and Research Forge Hackathon which come back and combine to main branch. then APOGEE '25 CTF. now 2 braches AI Research Intern and projects (which has 2 sequention nodes of DL Crowd Counting and VITON), then SIH 2 braches Government Internship Portal and IR Image Enhancement. back to main and 2 more banches AI Engineer – Stealth Startup and Grand Finalist – Smart India Hackathon (SIH0. in this sih we improved our gov internship portal. now back to main and 2 more splits to dec 2025 1st – ZervAI'25 Datathon and 2nd – Package'25 Case Competition and now. 10th jan 2026 paper 2 written feb 7th paper 3 written, march 1 paper 4 written,, may 01 paper 5 written to be published then personal portfolio. put all of this think of a proper plan 1st making sure it is viusally really good and break into doable tasks and do it

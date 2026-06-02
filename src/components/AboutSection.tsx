@@ -68,13 +68,34 @@ const AboutSection = () => {
             ))}
           </div>
         </div>
+      </div>
 
-        {/* Yggdrasil Tree Section */}
-        <div className="mb-20">
-          <h3 className="text-2xl font-display font-semibold mb-12 text-center">
+      {/* Yggdrasil Tree Section - Full screen height and width */}
+      <div className="w-full h-screen relative overflow-hidden">
+        <div className="absolute top-12 left-0 w-full z-20 pointer-events-none">
+          <h3 className="text-2xl font-display font-semibold text-center drop-shadow-lg">
             My <span className="text-accent-pink">Journey</span>
           </h3>
-          <YggdrasilTree />
+        </div>
+        <YggdrasilTree />
+      </div>
+
+      {/* Journey Legend - The terminology moved here */}
+      <div className="container mx-auto px-6 py-12">
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          {[
+            { label: 'Roots', color: 'hsl(var(--accent-blue))' },
+            { label: 'Learning', color: 'hsl(var(--primary))' },
+            { label: 'Advanced', color: 'hsl(var(--accent-pink))' },
+            { label: 'Research', color: 'hsl(var(--accent-blue-light))' },
+            { label: 'Achievements', color: 'hsl(var(--accent-gold, 45, 100%, 50%))' },
+            { label: 'Professional', color: 'hsl(var(--accent-cyan, 180, 100%, 50%))' }
+          ].map(phase => (
+            <div key={phase.label} className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-muted/30 border border-border/50">
+              <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: phase.color }} />
+              <span className="text-sm font-medium">{phase.label}</span>
+            </div>
+          ))}
         </div>
 
         {/* Fun Facts */}

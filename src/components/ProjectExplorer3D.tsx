@@ -107,8 +107,11 @@ const projects: Project[] = [
     id: 'empathic-ai',
     name: 'Empathic AI',
     description: 'Emotion-aware Chatbot',
-    status: 'coming-soon',
-    position: generateCircularPosition(3, 6) // Position 3: 180° (behind)
+    status: 'available',
+    position: generateCircularPosition(3, 6), // Position 3: 180° (behind)
+    commands: {
+      url: 'https://api1.shivaaydhondiyal.online/'
+    }
   },
   {
     id: 'research-intern',

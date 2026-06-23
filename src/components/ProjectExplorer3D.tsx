@@ -77,40 +77,33 @@ const generateCircularPosition = (index: number, total: number): Vector3 => {
 
 const projects: Project[] = [
   {
-    id: 'viton',
-    name: 'VITON',
-    description: 'Virtual Try-On System',
-    status: 'available',
-    position: generateCircularPosition(0, 6), // Position 0: directly in front
-    commands: {
-      frontend: 'C:\\Users\\Shivaay Dhondiyal\\Desktop\\shivaay\\coding\\2_projects\\7_personal portfolio\\ezyZip\\frontend',
-      backend: 'C:\\Users\\Shivaay Dhondiyal\\Desktop\\shivaay\\coding\\2_projects\\7_personal portfolio\\ezyZip\\backend',
-      url: 'http://localhost:8080/viton/front', // Proxied VITON frontend
-      mode: 'proxied-routes' // Uses clear proxy routes
-    }
-  },
-  {
     id: 'crowd-analysis',
     name: 'Crowd Analysis',
     description: 'Real-time Crowd Counting',
-    status: 'coming-soon',
-    position: generateCircularPosition(1, 6) // Position 1: 60° clockwise
+    status: 'available',
+    position: generateCircularPosition(0, 5), // Position 0: directly in front
+    commands: {
+      url: 'https://crowd-counting.shivaaydhondiyal.online/'
+    }
   },
   {
     id: 'hand-gesture',
     name: 'Hand Gesture',
     description: 'Gesture-based Game Control',
-    status: 'coming-soon',
-    position: generateCircularPosition(2, 6) // Position 2: 120° clockwise
+    status: 'available',
+    position: generateCircularPosition(1, 5), // Position 1: 72° clockwise
+    commands: {
+      url: 'https://hand-gesture.shivaaydhondiyal.online/'
+    }
   },
   {
     id: 'empathic-ai',
     name: 'Empathic AI',
     description: 'Emotion-aware Chatbot',
     status: 'available',
-    position: generateCircularPosition(3, 6), // Position 3: 180° (behind)
+    position: generateCircularPosition(2, 5), // Position 2: 144° clockwise
     commands: {
-      url: 'https://api1.shivaaydhondiyal.online/'
+      url: 'https://chatbot.shivaaydhondiyal.online/'
     }
   },
   {
@@ -118,14 +111,14 @@ const projects: Project[] = [
     name: 'Research Intern',
     description: 'Academic Research Platform',
     status: 'coming-soon',
-    position: generateCircularPosition(4, 6) // Position 4: 240° clockwise
+    position: generateCircularPosition(3, 5) // Position 3: 216° clockwise
   },
   {
     id: 'sentiment-analysis',
     name: 'Sentiment Analysis',
     description: 'Text Emotion Detection',
     status: 'coming-soon',
-    position: generateCircularPosition(5, 6) // Position 5: 300° clockwise
+    position: generateCircularPosition(4, 5) // Position 4: 288° clockwise
   }
 ];
 

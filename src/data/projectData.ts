@@ -117,6 +117,7 @@ export const projectsData: Project[] = [
     fullDescription: 'Built a real-time gesture-controlled drone system integrating MediaPipe and CNN classification.',
     technologies: ['MediaPipe', 'CNN', 'PyBullet', 'OpenCV'],
     githubLink: 'https://github.com/shivaay790/hand_gesture',
+    demoLink: 'https://hand-gesture.shivaaydhondiyal.online/',
     phase: 'advanced',
     position: { x: 50, y: 30 },
     orbImage: '/orbs/0b2476cd-d781-46b2-8713-c15a18949d04.png'
@@ -165,7 +166,7 @@ export const projectsData: Project[] = [
     fullDescription: 'Built an LLM-powered mental health chatbot leveraging FastAPI, React, FAISS, and RAG.',
     technologies: ['FastAPI', 'React', 'FAISS', 'RAG', 'Gemini 2.0'],
     githubLink: 'https://github.com/shivaay790/Mental-Health-Chatbot',
-    demoLink: 'https://api1.shivaaydhondiyal.online/',
+    demoLink: 'https://chatbot.shivaaydhondiyal.online/',
     phase: 'research',
     position: { x: 50, y: 42 },
     orbImage: '/orbs/c52d682d-306f-430f-b337-630faabf776f.png'
@@ -233,6 +234,7 @@ export const projectsData: Project[] = [
     fullDescription: 'Designed crowd analytics model using VGG16 and CBAM attention for precise density estimation.',
     technologies: ['VGG16', 'CBAM', 'DBSCAN', 'PyTorch'],
     githubLink: 'https://github.com/shivaay790/DL_crowd_counting',
+    demoLink: 'https://crowd-counting.shivaaydhondiyal.online/',
     phase: 'advanced',
     position: { x: 62, y: 58 },
     orbImage: '/orbs/0b2476cd-d781-46b2-8713-c15a18949d04.png'

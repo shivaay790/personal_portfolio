@@ -7,8 +7,17 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// ---------------------------------------------------------------------------
+// Local dev helper: these routes boot the sibling VITON project on demand.
+// Point VITON_PROJECT_PATH at your local checkout of
+// https://github.com/shivaay790/VITON  (see .env.example).
+// Defaults to a ../VITON sibling directory.
+// ---------------------------------------------------------------------------
+const VITON_ROOT =
+  process.env.VITON_PROJECT_PATH || path.resolve(__dirname, '..', 'VITON');
+
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 
 // Process tracking
 const processes = {
@@ -61,7 +70,7 @@ function spawnProcess(command, args, options, processName) {
 app.get('/viton/front', (req, res) => {
   console.log('🎯 /viton/front route accessed');
   
-  const frontendPath = 'C:\\Users\\Shivaay Dhondiyal\\Desktop\\shivaay\\coding\\2_projects\\7_personal portfolio\\ezyZip\\frontend';
+  const frontendPath = path.join(VITON_ROOT, 'frontend');
   
   // Check if process is already running
   if (isProcessRunning(processes.vitonFrontend)) {
@@ -105,7 +114,7 @@ app.get('/viton/front', (req, res) => {
 app.get('/viton/back', (req, res) => {
   console.log('🎯 /viton/back route accessed');
   
-  const backendPath = 'C:\\Users\\Shivaay Dhondiyal\\Desktop\\shivaay\\coding\\2_projects\\7_personal portfolio\\ezyZip\\backend';
+  const backendPath = path.join(VITON_ROOT, 'backend');
   
   // Check if process is already running
   if (isProcessRunning(processes.vitonBackend)) {

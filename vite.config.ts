@@ -11,9 +11,13 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
     fs: {
+      // Serve this project, plus (optionally) a local VITON checkout so the
+      // /viton/* dev routes can reach it. Set VITON_PROJECT_PATH in .env.
       allow: [
-        path.resolve(__dirname),                // main folder
-        path.resolve("C:\\Users\\Shivaay Dhondiyal\\Desktop\\shivaay\\coding\\2_projects\\12_clothes_tryon\\ezyZip") // external project folder
+        path.resolve(__dirname),
+        ...(process.env.VITON_PROJECT_PATH
+          ? [path.resolve(process.env.VITON_PROJECT_PATH)]
+          : []),
       ]
     },
     proxy: {

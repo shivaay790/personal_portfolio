@@ -33,7 +33,7 @@ const services = [
 const tiers = [
   {
     name: 'Pilot sprint',
-    price: '$600',
+    price: '$500',
     unit: 'one week, fixed scope',
     features: [
       'One metric, agreed in writing before I start',
@@ -45,7 +45,7 @@ const tiers = [
   },
   {
     name: 'Embedded',
-    price: '$2,500',
+    price: '$1,500',
     unit: 'per month · 10 hrs/week',
     features: [
       'Part-time, embedded with your engineering team',
@@ -54,23 +54,20 @@ const tiers = [
     ],
   },
   {
-    name: 'Core',
-    price: '$3,500',
-    unit: 'per month · 14 hrs/week',
-    features: ['Everything in Embedded', 'Larger scope, deeper involvement in roadmap'],
-  },
-  {
     name: 'Lead',
-    price: '$5,000',
+    price: '$3,000',
     unit: 'per month · 20 hrs/week',
-    features: ['Everything in Core', 'Maximum availability — one client only at this tier'],
+    features: [
+      'Everything in Embedded, at full availability',
+      'One client only at this tier',
+    ],
   },
 ];
 
 const faqs = [
   {
     q: "You're still a student. Why is that not a risk?",
-    a: "I'm finishing a B.Tech at DTU, and that is exactly why this rate exists — it won't after I graduate. The last production system I worked on handled over a million calls a month. Start with the $600 week and judge the work rather than the CV; that's what the pilot is for.",
+    a: "I'm finishing a B.Tech at DTU, and that is exactly why this rate exists — it won't after I graduate. The last production system I worked on handled over a million calls a month. Start with the $500 week and judge the work rather than the CV; that's what the pilot is for.",
   },
   {
     q: 'How do time zones work?',
@@ -94,7 +91,7 @@ const Consulting = () => {
     const prevDesc = meta?.getAttribute('content') ?? '';
     meta?.setAttribute(
       'content',
-      'Part-time AI/ML consulting for seed-stage voice AI teams. Latency and cost per minute, STT/TTS pipelines, and eval infrastructure. Fixed-scope one-week pilots from $600; retainers from $2,500/mo.'
+      'Part-time AI/ML consulting for seed-stage voice AI teams. Latency and cost per minute, STT/TTS pipelines, and eval infrastructure. Fixed-scope one-week pilots from $500; retainers from $1,500/mo.'
     );
     return () => {
       document.title = prevTitle;
@@ -144,7 +141,7 @@ const Consulting = () => {
               className="inline-flex items-center gap-2 rounded-lg bg-gradient-primary px-5 py-3 font-medium text-primary-foreground hover:opacity-90 transition-opacity"
             >
               <Mail size={17} />
-              Start with a $600 pilot
+              Start with a $500 pilot
             </a>
             <a
               href={PAPER_FLOWFAKE}
@@ -269,8 +266,9 @@ const Consulting = () => {
         <section className="py-12 border-t border-border">
           <h2 className="font-display text-2xl md:text-3xl font-semibold">Rates</h2>
           <p className="mt-3 text-sm text-muted-foreground max-w-2xl">
-            Priced by scope, with the hours capped. The cap is there to protect the quality of the work —
-            it is not a target to fill.
+            Priced by scope, with the hours capped. A cap means a stated maximum per week, written into
+            the agreement: past it, work stops until we agree a new scope. It is not a minimum I owe you and
+            not a target I fill. You get a predictable invoice instead of an open meter.
           </p>
 
           <div className="mt-8 grid gap-5 md:grid-cols-2">
